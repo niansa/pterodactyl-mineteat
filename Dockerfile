@@ -1,5 +1,5 @@
 # ----------------------------------
-FROM        ubuntu:18.04
+FROM        ubuntu:18.10
 
 MAINTAINER  Nils S. <nilsansa@gmail.com>
 
