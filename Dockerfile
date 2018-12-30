@@ -1,11 +1,10 @@
 # ----------------------------------
 FROM        ubuntu:18.04
 
-MAINTAINER  Kenny B, <kenny@venatus.digital>
+MAINTAINER  Nils S. <nilsansa@gmail.com>
 
 # Install Dependencies
-RUN         dpkg --add-architecture i386 && \
-            apt update && \
+RUN         apt update && \
             apt upgrade -y && \
             apt install minetestserver
             apt remove minetestserver minetest-data
@@ -14,8 +13,6 @@ RUN         dpkg --add-architecture i386 && \
 
 USER        container
 ENV         HOME /home/container
-ENV         WINEARCH win64
-ENV         WINEPREFIX /home/container/.wine64
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
