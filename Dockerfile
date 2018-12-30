@@ -6,8 +6,8 @@ MAINTAINER  Nils S. <nilsansa@gmail.com>
 # Install Dependencies
 RUN         apt update && \
             apt upgrade -y && \
-            apt install minetestserver
-            apt remove minetestserver minetest-data
+            apt -y install minetestserver && \
+            apt -y remove minetestserver minetest-data && \
             useradd -d /home/container -m container && \
             cd /home/container
 
