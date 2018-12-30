@@ -8,7 +8,7 @@ RUN         dpkg --add-architecture i386 && \
             apt update && \
             apt upgrade -y && \
             apt install minetestserver
-            apt remove minetestserver
+            apt remove minetestserver minetest-data
             useradd -d /home/container -m container && \
             cd /home/container
 
