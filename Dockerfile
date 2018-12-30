@@ -8,6 +8,7 @@ RUN         apt update && \
             apt upgrade -y && \
             apt -y install minetest-server && \
             apt -y remove minetest-server minetest-data && \
+            apt clean && \
             useradd -d /home/container -m container && \
             cd /home/container
 
