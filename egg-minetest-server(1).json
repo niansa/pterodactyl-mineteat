@@ -1,0 +1,26 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2018-12-30T14:49:36+01:00",
+    "name": "Minetest Server",
+    "author": "support@pterodactyl.io",
+    "description": "An open source voxel game engine. Play one of our many games, mod a game to your liking, make your own game, or play on a multiplayer server.",
+    "image": "tuxifan\/pterodactyl-minetest:latest",
+    "startup": ".\/bin\/minetestserver",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \" listening on \",\r\n    \"userInteraction\": []\r\n}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"debug.txt\"\r\n}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Oldegg: ubuntu:18.04\r\n# Minetest Installation Script\r\ncd \/mnt\/server\r\n\r\n# Install installation dependencies\r\napt update\r\napt -y install unzip wget\r\ntouch test\r\n\r\n# Download and prepare the engine\r\nwget -Ominetest.zip https:\/\/github.com\/niansa\/minetest\/releases\/download\/server-0.4.17.1\/minetestserver.zip\r\nunzip .\/minetest.zip\r\n#rm .\/minetest.zip\r\necho 'name = admin' > .\/minetest.conf\r\nchmod a+x .\/bin\/minetestserver\r\n\r\n# Download and prepare the game\r\ncd .\/games\r\nwget -Ominetest_game.zip https:\/\/github.com\/minetest\/minetest_game\/archive\/0.4.17.1.zip\r\nunzip minetest_game.zip\r\n#rm minetest_game.zip\r\nmv minetest_game-0.4.17.1 minetest_game\r\ncd ..",
+            "container": "ubuntu:18.10",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
