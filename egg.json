@@ -18,7 +18,7 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/bash\r\n# Minetest Installation Script\r\ncd \/mnt\/server &&\r\n\r\n# Install installation dependencies\r\napt update &&\r\napt -y install unzip wget build-essential libirrlicht-dev cmake libbz2-dev libjpeg-dev libxxf86vm-dev libsqlite3-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev luajit &&\r\ntouch test &&\r\n\r\n# Download, compile and prepare the engine\r\nwget -Osrc.zip https:\/\/github.com\/minetest\/minetest\/archive\/0.4.17.1.zip &&\r\nunzip .\/src.zip &&\r\nrm .\/src.zip &&\r\ncd .\/minetest-0.4.17.1 &&\r\ncmake . -DRUN_IN_PLACE=TRUE -DBUILD_CLIENT=FALSE -DBUILD_SERVER=TRUE &&\r\nmake -j$(nproc) &&\r\nmake package &&\r\nmv .\/minetest-0.4.17.1-linux.tar.gz ..\/ &&\r\nrm -rf .\/minetest-0.4.17.1 &&\r\ntar xfz .\/minetest-0.4.17.1-linux.tar.gz &&\r\nmv .\/minetest-0.4.17.1-linux\/* .\/ &&\r\nrm -rf minetest-0.4.17.1-linux &&\r\n\r\n# Download and prepare the engine\r\n#wget -Ominetest.zip https:\/\/github.com\/niansa\/minetest\/releases\/download\/server-0.4.17.1\/minetestserver.zip &&\r\n#unzip .\/minetest.zip &&\r\n#rm .\/minetest.zip &&\r\n#echo 'name = admin' > .\/minetest.conf &&\r\n#chmod a+x .\/bin\/minetestserver &&\r\n\r\n# Download and prepare the game\r\ncd .\/games &&\r\nwget -Ominetest_game.zip https:\/\/github.com\/minetest\/minetest_game\/archive\/0.4.17.1.zip &&\r\nunzip minetest_game.zip &&\r\n#rm minetest_game.zip &&\r\nmv minetest_game-0.4.17.1 minetest_game &&\r\ncd .. &&\r\n\r\n# Done!\r\necho \"Installation was successfully completed!\"",
-            "container": "ubuntu:18.10",
+            "container": "ubuntu:18.04",
             "entrypoint": "bash"
         }
     },
